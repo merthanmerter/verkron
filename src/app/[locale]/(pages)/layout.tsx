@@ -9,5 +9,5 @@ type Props = {
 export default async function Layout({ children, params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <main className="flex-1 p-4">{children}</main>;
+  return <main className="grid h-dvh place-items-center p-4">{children}</main>;
 }

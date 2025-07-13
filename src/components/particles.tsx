@@ -220,16 +220,16 @@ export default function Component() {
     };
   }, [isMobile]);
   return (
-    <div className="relative flex h-dvh w-full flex-col items-center justify-center bg-black">
+    <>
       <canvas
         aria-label="Interactive particle effect with VK logo"
         className="absolute top-0 left-0 h-full w-full touch-none"
         ref={canvasRef}
       />
-      <div className="absolute bottom-[120px] z-10">
+      <div className="z-10 mt-auto py-8">
         {' '}
         {/* Moved up from bottom-[100px] */}
-        <p className="max-w-[100ch] font-mono text-[10px] text-zinc-400 leading-6 tracking-widest md:text-xs">
+        <p className="max-w-[100ch] font-mono text-xs text-zinc-400 md:leading-5 md:tracking-wider">
           Verkron provides expert solutions in pricing strategies, operations,
           inventory management, technical drafting, corporate branding, supply
           chain optimization, and industrial product design. Our goal is to
@@ -249,6 +249,6 @@ export default function Component() {
           </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 }

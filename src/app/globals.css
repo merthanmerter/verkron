@@ -77,41 +77,6 @@
       transform: translateX(-50%);
     }
   }
-
-  --animate-scroll-loop: scroll-loop ease infinite;
-
-  @keyframes scroll-loop {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(calc(-100% + 20rem));
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  --animate-background: background-move ease infinite;
-
-  @keyframes background-move {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  --animate-border: border 4s linear infinite;
-
-  @keyframes border {
-    to {
-      --border-angle: 360deg;
-    }
-  }
 }
 
 :root {
@@ -189,24 +154,5 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@layer components {
-  .border-wrapper::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    z-index: -1;
-    border-radius: inherit;
-    background: conic-gradient(
-      from var(--border-angle),
-      transparent 80%,
-      #f04d4c 84%,
-      #f59e0d 88%,
-      #059cff 92%,
-      transparent
-    );
-    animation: border 2500ms linear infinite;
   }
 }

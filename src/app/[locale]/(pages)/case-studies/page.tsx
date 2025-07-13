@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button';
 
 export default function Page() {
   return (
-    <div className="flex h-dvh flex-col items-center justify-center">
-      <h1 className="flex items-center gap-2 font-bold">
+    <div className="grid place-items-center">
+      <h1 className="">
         <ChefHatIcon className="inline-block" />
         <CookingPotIcon className="inline-block" />
       </h1>
