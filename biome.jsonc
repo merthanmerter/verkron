@@ -1,0 +1,30 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.1.1/schema.json",
+  "extends": ["ultracite"],
+  "files": {
+    "includes": ["**", "!node_modules", "!**/drizzle"]
+  },
+  "linter": {
+    "rules": {
+      "complexity": {
+        "noUselessFragments": "error",
+        "noExcessiveCognitiveComplexity": {
+          "level": "error",
+          "options": {
+            "maxAllowedComplexity": 30
+          }
+        }
+      },
+      "nursery": {
+        "noUnknownAtRule": "off",
+        "noImportantStyles": "off"
+      },
+      "style": {
+        "useFilenamingConvention": "off"
+      },
+      "performance": {
+        "noImgElement": "off"
+      }
+    }
+  }
+}
