@@ -46,7 +46,22 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head />
+      <head>
+        <link
+          href="/favicon-96x96.png"
+          rel="icon"
+          sizes="96x96"
+          type="image/png"
+        />
+        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <link href="/favicon.ico" rel="shortcut icon" />
+        <link
+          href="/apple-touch-icon.png"
+          rel="apple-touch-icon"
+          sizes="180x180"
+        />
+        <link href="/site.webmanifest" rel="manifest" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-dvh flex-col antialiased`}
       >
