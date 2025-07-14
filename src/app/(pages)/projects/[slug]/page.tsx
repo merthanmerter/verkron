@@ -4,6 +4,8 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { useMDXComponents } from '@/lib/mdx';
 import { getProject } from '../data';
 
+export const dynamic = 'force-static';
+
 interface Props {
   params: Promise<{
     slug: string;
