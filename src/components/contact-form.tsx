@@ -61,7 +61,7 @@ function ContactForm() {
     <Dialog onOpenChange={setOpen} open={open}>
       <DialogTrigger asChild>
         <Button
-          className="cursor-pointer text-[#FF6B6B] hover:text-[#FF6B6B]/80"
+          className="cursor-pointer text-[#FF6B6B] hover:bg-neutral-900 hover:text-[#FF6B6B]/80"
           variant="ghost"
         >
           Contact

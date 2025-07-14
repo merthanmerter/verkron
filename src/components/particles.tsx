@@ -235,7 +235,7 @@ export default function Component() {
                     variant: 'ghost',
                     size: 'default',
                     className:
-                      'cursor-pointer text-[#FF6B6B] hover:text-[#FF6B6B]/80',
+                      'cursor-pointer text-[#FF6B6B] hover:bg-neutral-900 hover:text-[#FF6B6B]/80',
                   })
                 )}
               >
@@ -245,22 +245,19 @@ export default function Component() {
           >
             <ContactForm />
           </Suspense>
-          <span
-            aria-hidden="true"
-            className="mx-2 select-none text-muted-foreground"
-          >
+          <span aria-hidden="true" className="mx-2 select-none text-[#FF6B6B]">
             •
           </span>
           <Button
             asChild
-            className="text-[#FF6B6B] hover:text-[#FF6B6B]/80"
+            className="text-[#FF6B6B] hover:bg-neutral-900 hover:text-[#FF6B6B]/80"
             variant="ghost"
           >
             <Link href="/projects">Projects</Link>
           </Button>
         </div>
 
-        <p className="max-w-[80ch] text-muted-foreground text-sm">
+        <p className="max-w-[80ch] text-neutral-300 text-sm">
           Verkron provides expert solutions in pricing strategies, operations,
           inventory management, technical drafting, corporate branding, supply
           chain optimization, industrial product design, and software
