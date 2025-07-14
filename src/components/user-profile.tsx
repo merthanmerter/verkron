@@ -3,11 +3,11 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { createAuthClient } from 'better-auth/react';
 import { UserRoundIcon } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Link, redirect } from '@/i18n/navigation';
 import { signOut } from '@/lib/auth-client';
 import { Card, CardContent, CardFooter } from './ui/card';
 
@@ -15,8 +15,8 @@ const { useSession } = createAuthClient();
 
 export default function UserProfile() {
   const { data: session, isPending: isSessionPending, error } = useSession();
-  const locale = useLocale();
   const queryClient = useQueryClient();
+  const router = useRouter();
 
   const handleSignOut = async () => {
     queryClient.resetQueries();
@@ -27,8 +27,8 @@ export default function UserProfile() {
           queryClient.resetQueries();
         },
         onSuccess: () => {
-          redirect({ href: '/login', locale });
           toast.success('Signed out successfully');
+          router.push('/login');
         },
       },
     });

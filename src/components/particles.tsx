@@ -1,11 +1,10 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { cn } from '@/lib/utils';
+import { LOGO_PATH } from '@/lib/vk-logo-path';
 import ContactForm from './contact-form';
-
-// Your logo path
-export const LOGO_PATH =
-  'M69 14L28 56L28 56L28 56L0 28L11 17L28 33L58 3L69 14ZM44 44L89 0L100 11L83 28L100 44L89 56L72 39L56 56L44 44Z';
+import { Button, buttonVariants } from './ui/button';
 
 export default function Component() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -17,7 +16,7 @@ export default function Component() {
     if (!canvas) {
       return;
     }
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
     if (!ctx) {
       return;
     }
@@ -120,7 +119,7 @@ export default function Component() {
         return;
       }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'black';
+      ctx.fillStyle = 'oklch(0.145 0 0)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       const { x: mouseX, y: mouseY } = mousePositionRef.current;
       const maxDistance = 240;
@@ -207,8 +206,8 @@ export default function Component() {
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
     canvas.addEventListener('mouseleave', handleMouseLeave);
-    canvas.addEventListener('touchstart', handleTouchStart);
-    canvas.addEventListener('touchend', handleTouchEnd);
+    canvas.addEventListener('touchstart', handleTouchStart, { passive: true });
+    canvas.addEventListener('touchend', handleTouchEnd, { passive: true });
     return () => {
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousemove', handleMouseMove);
@@ -229,24 +228,45 @@ export default function Component() {
       <div className="z-10 mt-auto py-8">
         {' '}
         {/* Moved up from bottom-[100px] */}
-        <p className="max-w-[100ch] font-mono text-xs text-zinc-400 md:leading-5 md:tracking-wider">
+        <p className="max-w-[80ch] text-muted-foreground text-sm">
           Verkron provides expert solutions in pricing strategies, operations,
           inventory management, technical drafting, corporate branding, supply
-          chain optimization, and industrial product design. Our goal is to
-          enhance efficiency, drive innovation, and support businesses in
-          achieving operational excellence.
+          chain optimization, industrial product design, and software
+          development. Our goal is to enhance efficiency, drive innovation, and
+          support businesses in achieving operational excellence.
         </p>
-        <div className="mt-2 flex w-full gap-2 text-sm">
-          <ContactForm />
-          <span aria-hidden="true" className="mx-2 select-none text-zinc-500">
+        <div className="mx-auto mt-8 flex items-center justify-center gap-2 text-center">
+          <Suspense
+            fallback={
+              <span
+                className={cn(
+                  buttonVariants({
+                    variant: 'ghost',
+                    size: 'default',
+                    className:
+                      'cursor-pointer text-[#FF6B6B] hover:text-[#FF6B6B]/80',
+                  })
+                )}
+              >
+                Contact
+              </span>
+            }
+          >
+            <ContactForm />
+          </Suspense>
+          <span
+            aria-hidden="true"
+            className="mx-2 select-none text-muted-foreground"
+          >
             •
           </span>
-          <Link
-            className="text-[#FF6B6B] transition-opacity duration-300 hover:opacity-70"
-            href="/case-studies"
+          <Button
+            asChild
+            className="text-[#FF6B6B] hover:text-[#FF6B6B]/80"
+            variant="ghost"
           >
-            Case Studies
-          </Link>
+            <Link href="/projects">Projects</Link>
+          </Button>
         </div>
       </div>
     </>

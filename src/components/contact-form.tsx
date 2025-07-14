@@ -1,7 +1,8 @@
 'use client';
 
 import { useMutation } from '@tanstack/react-query';
-import { useReducer, useRef } from 'react';
+import { parseAsBoolean, useQueryState } from 'nuqs';
+import { useRef } from 'react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import {
@@ -22,7 +23,11 @@ import { Textarea } from './ui/textarea';
 function ContactForm() {
   const ref = useRef<HTMLFormElement>(null);
 
-  const [open, setOpen] = useReducer((_open, action: boolean) => action, false);
+  // const [open, setOpen] = useReducer((_open, action: boolean) => action, false);
+  const [open, setOpen] = useQueryState(
+    'contact',
+    parseAsBoolean.withDefault(false)
+  );
 
   const contact = useMutation({
     mutationFn: async (formData: FormData) => {
@@ -58,9 +63,12 @@ function ContactForm() {
   return (
     <Dialog onOpenChange={setOpen} open={open}>
       <DialogTrigger asChild>
-        <span className="cursor-pointer text-[#FF6B6B] transition-opacity duration-300 hover:opacity-70">
+        <Button
+          className="cursor-pointer text-[#FF6B6B] hover:text-[#FF6B6B]/80"
+          variant="ghost"
+        >
           Contact
-        </span>
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

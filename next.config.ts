@@ -1,13 +1,13 @@
+import createMDX from '@next/mdx';
 import type { NextConfig } from 'next';
-import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNextIntl = createNextIntlPlugin({
-  requestConfig: './src/i18n/request.ts',
+const withMDX = createMDX();
+
+const config: NextConfig = {
+  pageExtensions: ['mdx', 'ts', 'tsx'],
   experimental: {
-    createMessagesDeclaration: './messages/en.json',
+    mdxRs: true,
   },
-});
+};
 
-const config: NextConfig = {};
-
-export default withNextIntl(config);
+export default withMDX(config);

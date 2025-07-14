@@ -3,6 +3,8 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Loader2 } from 'lucide-react';
 import NextLink from 'next/link';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
@@ -16,7 +18,6 @@ import {
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Link, useRouter } from '@/i18n/navigation';
 import { signIn } from '@/lib/auth-client';
 
 export default function SignIn() {
