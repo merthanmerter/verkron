@@ -129,7 +129,7 @@ We designed and developed a modern, responsive website that effectively showcase
 - Integration of product catalogs and technical documentation
 - Blog section for industry insights and company news
 
-![Screenshot of the Mox Systems website](/images/moxweb.png)
+![Screenshot of the Mox Systems website](/images/moxweb.gif)
 
 ### Content Creation
 Our content strategy focused on creating compelling, technically accurate product descriptions that would resonate with both architects and contractors:
