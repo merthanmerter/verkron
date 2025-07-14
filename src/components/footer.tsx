@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
+import GithubIcon from './github-icon';
 import LinkedinIcon from './linkedin-icon';
 
 const footerLinks = [
@@ -19,6 +20,11 @@ const socialLinks = [
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/company/verkron/',
     icon: LinkedinIcon,
+  },
+  {
+    label: 'Github',
+    href: 'https://github.com/merthanmerter/verkron',
+    icon: GithubIcon,
   },
 ];
 
@@ -57,7 +63,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-3">
             {socialLinks.map((social) => (
               <a
                 aria-label={social.label}
@@ -66,7 +72,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <social.icon className="h-4 w-4" />
+                <social.icon className="size-5" />
               </a>
             ))}
           </div>

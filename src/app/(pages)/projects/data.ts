@@ -84,7 +84,12 @@ This project demonstrates how deep industry expertise can be successfully transf
 - Provides clients with long-term value through on-premises deployment
 - Maintains the precision and reliability of established manual processes
 
-The result is a powerful example of how traditional industrial expertise can be enhanced and scaled through thoughtful software development, creating value for both the consultancy and their manufacturing clients.`,
+The result is a powerful example of how traditional industrial expertise can be enhanced and scaled through thoughtful software development, creating value for both the consultancy and their manufacturing clients.
+
+## Company Websites
+
+We also built the corporate websites for **[Inalcom](https://inalcocompany.com)** and **[ExtrusionSim](https://extrusionsim.com)** using a modern technology stack including Next.js, TypeScript, Hono, shadcn/ui, Drizzle ORM, Neon Database, Better Auth, TanStack Query, GSAP, and next-intl. This carefully selected stack ensures type-safe development, robust API endpoints, secure authentication, efficient data caching, seamless animations, multi-language support, and blazing-fast database operations—all while maintaining a beautiful, consistent user interface.
+`,
   },
   {
     slug: 'mox',
