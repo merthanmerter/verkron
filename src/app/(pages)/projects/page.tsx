@@ -2,10 +2,10 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from '@/components/image';
 import { Button } from '@/components/ui/button';
-import { getAllProject } from './data';
+import { projectsService } from './definitions';
 
 export default function Page() {
-  const projects = getAllProject();
+  const projects = projectsService.getAllContent();
 
   return (
     <div className="container mx-auto max-w-5xl">

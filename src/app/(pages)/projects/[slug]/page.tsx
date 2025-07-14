@@ -2,8 +2,8 @@ import { compile, run } from '@mdx-js/mdx';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime';
-import { components } from '@/lib/mdx';
-import { getAllProject, getProject } from '../data';
+import { components } from '@/components/mdx';
+import { projectsService } from '../definitions';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -15,7 +15,7 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  const projects = getAllProject();
+  const projects = projectsService.getAllContent();
   return projects.map((project) => ({
     slug: project.slug,
   }));
@@ -23,7 +23,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = projectsService.getContent(slug);
 
   return {
     title: project.title,
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = projectsService.getContent(slug);
 
   // Compile the MDX content
   const code = String(
