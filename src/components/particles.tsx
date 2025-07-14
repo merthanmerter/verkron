@@ -226,16 +226,7 @@ export default function Component() {
         ref={canvasRef}
       />
       <div className="z-10 mt-auto py-8">
-        {' '}
-        {/* Moved up from bottom-[100px] */}
-        <p className="max-w-[80ch] text-muted-foreground text-sm">
-          Verkron provides expert solutions in pricing strategies, operations,
-          inventory management, technical drafting, corporate branding, supply
-          chain optimization, industrial product design, and software
-          development. Our goal is to enhance efficiency, drive innovation, and
-          support businesses in achieving operational excellence.
-        </p>
-        <div className="mx-auto mt-8 flex items-center justify-center gap-2 text-center">
+        <div className="mx-auto mb-8 flex items-center justify-center gap-2 text-center">
           <Suspense
             fallback={
               <span
@@ -268,6 +259,14 @@ export default function Component() {
             <Link href="/projects">Projects</Link>
           </Button>
         </div>
+
+        <p className="max-w-[80ch] text-muted-foreground text-sm">
+          Verkron provides expert solutions in pricing strategies, operations,
+          inventory management, technical drafting, corporate branding, supply
+          chain optimization, industrial product design, and software
+          development. Our goal is to enhance efficiency, drive innovation, and
+          support businesses in achieving operational excellence.
+        </p>
       </div>
     </>
   );

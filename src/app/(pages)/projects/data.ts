@@ -45,7 +45,21 @@ We built EIS using a modern, performance-focused technology stack designed for r
 
 For the frontend development, we built a React-based user interface with TanStack Router for seamless navigation, TanStack Query for efficient data management and caching, and shadcn/ui component library for consistent, accessible design.
 
-The application compiles to a single binary for simplified installation and offers multi-platform compatibility across Windows, Linux, and macOS. This enables local server deployment capability for secure, on-premises installation at client facilities, while maintaining connection to Inalcom's specialized calculation APIs for the core optimization algorithms.
+The application compiles to a single binary for simplified installation and offers multi-platform compatibility across Windows, Linux, and macOS. This enables local server deployment capability for secure, on-premises installation at client facilities, while maintaining connection to **Inalcom's calculation APIs** for the core optimization algorithms.
+
+\`\`\`
+async function getOptimalSettings(input) {
+  const res = await fetch("https://api.extrusionsim.com/v1/simulate", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'API-Key': process.env.INALCOM_API_KEY
+    },
+    body: JSON.stringify(input)
+  })
+  return res.json()
+}
+\`\`\`
 
 ### Core Application Features
 
@@ -61,7 +75,7 @@ We successfully digitized Inalcom's years of industry expertise into automated, 
 
 The transformation enabled Inalcom to serve multiple clients simultaneously with consistent, automated process optimization, significantly expanding their consulting capacity. What previously required manual calculations can now be completed in minutes with immediate results. Clients receive a complete, self-contained optimization system for local deployment, providing ongoing value while maintaining security and control over their production data.
 
-## Why This Matters
+## The Impact
 
 This project demonstrates how deep industry expertise can be successfully transformed into modern, deployable software solutions. By respecting Inalcom's proven methodologies while implementing them in a cutting-edge technical stack, we created a solution that:
 
@@ -125,7 +139,6 @@ We contributed to the industrial design of several product lines, ensuring both 
 - LED skirting board profiles with innovative lighting solutions
 - Tile trim profiles for various applications
 - Step nose and safety profiles
-- Flooring transition solutions
 
 ### Catalog & Technical Documentation
 We developed comprehensive product catalogs that effectively communicate product features and technical specifications:
@@ -156,7 +169,7 @@ The comprehensive digital transformation project delivered significant results f
 - Increased engagement through blog content and social media
 - Better market positioning through professional catalog materials
 
-## Why This Matters
+## The Impact
 
 This project demonstrates the impact of a comprehensive digital transformation approach that combines:
 - Strategic content development

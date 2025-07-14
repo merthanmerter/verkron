@@ -97,7 +97,7 @@ export const components = {
     const codeHTML = highlight(children as string);
     return (
       <code
-        className="relative rounded bg-zinc-100 px-[0.3rem] py-[0.2rem] font-mono text-sm dark:bg-zinc-800"
+        className="mx-auto my-6 block w-full overflow-x-auto rounded-md bg-muted/80 p-6 font-mono text-sm dark:bg-muted/25"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: 🙈
         dangerouslySetInnerHTML={{ __html: codeHTML }}
         {...props}
