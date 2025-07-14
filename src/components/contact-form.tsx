@@ -13,7 +13,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { useSession } from '@/lib/auth-client';
 import { rpc } from '@/lib/rpc';
 import { contactSchema } from '@/schema/contact';
 import { Input } from './ui/input';
@@ -58,8 +57,6 @@ function ContactForm() {
     },
   });
 
-  const { data: session } = useSession();
-
   return (
     <Dialog onOpenChange={setOpen} open={open}>
       <DialogTrigger asChild>
@@ -93,11 +90,9 @@ function ContactForm() {
               Name
             </Label>
             <Input
-              defaultValue={session?.user?.name ?? ''}
               id="name"
               name="name"
-              placeholder={session?.user?.name ?? 'Your Name'}
-              readOnly={!!session}
+              placeholder={'Your Name'}
               required
               type="text"
             />
@@ -107,11 +102,9 @@ function ContactForm() {
               Email
             </Label>
             <Input
-              defaultValue={session?.user?.email ?? ''}
               id="email"
               name="email"
-              placeholder={session?.user?.email ?? 'Your Email'}
-              readOnly={!!session}
+              placeholder={'Your Email'}
               required
               type="email"
             />

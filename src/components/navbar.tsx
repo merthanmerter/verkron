@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { LOGO_PATH } from '@/lib/vk-logo-path';
-import { NavUser } from './nav-user';
+import { ThemeSwitcher } from './theme-switcher';
 
 export function Navbar() {
   return (
@@ -23,7 +23,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <NavUser />
+          <ThemeSwitcher />
         </div>
       </div>
     </header>

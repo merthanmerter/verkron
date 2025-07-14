@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { useMDXComponents } from '@/lib/mdx';
+import { components } from '@/lib/mdx';
 import { getProject } from '../data';
 
 export const dynamic = 'force-static';
@@ -25,7 +25,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug } = await params;
   const project = getProject(slug);
-  const components = useMDXComponents();
 
   return (
     <div className="container">

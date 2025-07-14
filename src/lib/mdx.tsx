@@ -9,7 +9,7 @@ type ListItemProps = ComponentPropsWithoutRef<'li'>;
 type AnchorProps = ComponentPropsWithoutRef<'a'>;
 type BlockquoteProps = ComponentPropsWithoutRef<'blockquote'>;
 
-const components = {
+export const components = {
   h1: (props: HeadingProps) => (
     <h1
       className="mb-8 scroll-m-20 border-b pt-8 pb-4 font-bold text-4xl tracking-tight lg:text-5xl"
@@ -149,7 +149,3 @@ const components = {
     <img alt={props.alt} className="my-6 w-full rounded-md border" {...props} />
   ),
 };
-
-export function useMDXComponents() {
-  return components;
-}
