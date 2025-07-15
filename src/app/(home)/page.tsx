@@ -23,7 +23,7 @@ export default function Page() {
                       variant: 'ghost',
                       size: 'default',
                       className:
-                        'cursor-pointer text-[#FF6B6B] hover:text-[#FF6B6B]/80',
+                        'cursor-pointer text-[#e9435d] hover:text-[#e9435d]/80',
                     })
                   )}
                 >
@@ -35,13 +35,13 @@ export default function Page() {
             </Suspense>
             <span
               aria-hidden="true"
-              className="mx-2 select-none text-[#FF6B6B]"
+              className="mx-2 select-none text-[#e9435d]"
             >
               •
             </span>
             <Button
               asChild
-              className="text-[#FF6B6B] hover:text-[#FF6B6B]/80"
+              className="text-[#e9435d] hover:text-[#e9435d]/80"
               variant="ghost"
             >
               <Link href="/projects">Projects</Link>

@@ -95,7 +95,7 @@ export default function Component() {
             baseY: y,
             size: particleSize,
             color: theme === 'dark' ? 'white' : 'black',
-            scatteredColor: '#FF6B6B',
+            scatteredColor: '#e9435d',
             isYourLogo: true,
             life: Math.random() * 100 + 50,
           };
