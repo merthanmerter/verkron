@@ -5,7 +5,6 @@ export interface Project extends BaseContent {
   title: string;
   projectType: string;
   industry: string;
-  featured: boolean;
   description: string;
 }
 
