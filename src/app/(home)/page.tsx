@@ -49,11 +49,10 @@ export default function Page() {
           </div>
 
           <p className="max-w-[80ch] text-center text-muted-foreground text-sm">
-            Verkron provides expert solutions in pricing strategies, operations,
-            inventory management, technical drafting, corporate branding, supply
-            chain optimization, industrial product design, and software
-            development. Our goal is to enhance efficiency, drive innovation,
-            and support businesses in achieving operational excellence.
+            Verkron takes on complex projects that need multiple specialties
+            working together. We help companies transform their ideas into
+            successful businesses — from product development and digital tools
+            to building the brand and market presence that drives sales.
           </p>
         </div>
       </div>
