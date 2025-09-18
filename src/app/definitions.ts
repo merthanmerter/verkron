@@ -1,4 +1,4 @@
-import { type BaseContent, ContentService } from '@/lib/content';
+import { type BaseContent, ContentService } from "@/lib/content";
 
 export interface Project extends BaseContent {
   logo: string;
@@ -8,4 +8,4 @@ export interface Project extends BaseContent {
   description: string;
 }
 
-export const projectsService = new ContentService<Project>('projects');
+export const projectsService = new ContentService<Project>("projects");

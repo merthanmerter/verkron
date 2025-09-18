@@ -1,16 +1,18 @@
-import { Analytics } from '@vercel/analytics/next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import Providers from '@/components/providers';
-import './globals.css';
+import { Analytics } from "@vercel/analytics/next";
+import { Geist, Geist_Mono } from "next/font/google";
+import Providers from "@/components/providers";
+import "./globals.css";
+import { Footer } from "@/components/footer";
+import { Navbar } from "@/components/navbar";
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 type Props = {
@@ -19,9 +21,9 @@ type Props = {
 
 export function generateMetadata() {
   return {
-    title: 'Verkron',
+    title: "Verkron",
     description:
-      'Verkron provides expert solutions in pricing strategies, operations, inventory management, technical drafting, corporate branding, supply chain optimization, and industrial product design. Our goal is to enhance efficiency, drive innovation, and support businesses in achieving operational excellence.',
+      "Verkron provides expert solutions in pricing strategies, operations, inventory management, technical drafting, corporate branding, supply chain optimization, and industrial product design. Our goal is to enhance efficiency, drive innovation, and support businesses in achieving operational excellence.",
   };
 }
 export default function RootLayout({ children }: Props) {
@@ -46,7 +48,13 @@ export default function RootLayout({ children }: Props) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-dvh flex-col antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          <main className="container mx-auto min-h-[calc(100vh-4rem-24rem)] max-w-6xl flex-1 px-4">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
         <Analytics />
       </body>
     </html>

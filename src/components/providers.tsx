@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { ProgressProvider } from '@bprogress/next/app';
-import { QueryClientProvider } from '@tanstack/react-query';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { NuqsAdapter } from 'nuqs/adapters/next/app';
-import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/sonner';
-import { getQueryClient } from '@/lib/query-client';
+import { ProgressProvider } from "@bprogress/next/app";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
+import { getQueryClient } from "@/lib/query-client";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   const queryClient = getQueryClient();
@@ -17,8 +17,8 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem={false}
           disableTransitionOnChange
+          enableSystem={false}
         >
           <ProgressProvider
             color="var(--primary)"

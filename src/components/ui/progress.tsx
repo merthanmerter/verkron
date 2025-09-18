@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Indicator, Root } from '@radix-ui/react-progress';
-import type * as React from 'react';
+import { Indicator, Root } from "@radix-ui/react-progress";
+import type * as React from "react";
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 function Progress({
   className,
@@ -13,7 +13,7 @@ function Progress({
   return (
     <Root
       className={cn(
-        'relative h-2 w-full overflow-hidden rounded-full bg-primary/20',
+        "relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
         className
       )}
       data-slot="progress"

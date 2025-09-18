@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
@@ -17,7 +17,7 @@ export function ThemeSwitcher() {
   return (
     <Button
       className="relative h-9 w-9 transition-colors"
-      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       size="icon"
       variant="ghost"
     >

@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useMutation } from '@tanstack/react-query';
-import { parseAsBoolean, useQueryState } from 'nuqs';
-import { useRef } from 'react';
-import { toast } from 'sonner';
-import { Button } from '@/components/ui/button';
+import { useMutation } from "@tanstack/react-query";
+import { parseAsBoolean, useQueryState } from "nuqs";
+import { useRef } from "react";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -12,19 +12,17 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { rpc } from '@/lib/rpc';
-import { contactSchema } from '@/schema/contact';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Textarea } from './ui/textarea';
+} from "@/components/ui/dialog";
+import { contactSchema } from "@/schema/contact";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import { Textarea } from "./ui/textarea";
 
 function ContactForm() {
   const ref = useRef<HTMLFormElement>(null);
 
-  // const [open, setOpen] = useReducer((_open, action: boolean) => action, false);
   const [open, setOpen] = useQueryState(
-    'contact',
+    "contact",
     parseAsBoolean.withDefault(false)
   );
 
@@ -33,14 +31,18 @@ function ContactForm() {
       const data = Object.fromEntries(formData);
       const parsed = contactSchema.parse(data);
 
-      const res = await rpc.api.contact.$post({
-        json: parsed,
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(parsed),
       });
 
       const json = await res.json();
 
       if (!res.ok) {
-        throw new Error(json.message || 'Failed to send message');
+        throw new Error(json.message || "Failed to send message");
       }
 
       return json;
@@ -60,16 +62,13 @@ function ContactForm() {
   return (
     <Dialog onOpenChange={setOpen} open={open}>
       <DialogTrigger asChild>
-        <Button
-          className="cursor-pointer text-[#e9435d] hover:text-[#e9435d]/80"
-          variant="ghost"
-        >
-          Contact
+        <Button className="font-bold" size="lg" variant="default">
+          GET IN TOUCH
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Contact Us</DialogTitle>
+          <DialogTitle className="font-bold">Get in touch</DialogTitle>
           <DialogDescription>
             We'd love to hear from you! Please fill out the form below and we'll
             get back to you as soon as possible.
@@ -92,7 +91,7 @@ function ContactForm() {
             <Input
               id="name"
               name="name"
-              placeholder={'Your Name'}
+              placeholder={"Your Name"}
               required
               type="text"
             />
@@ -104,7 +103,7 @@ function ContactForm() {
             <Input
               id="email"
               name="email"
-              placeholder={'Your Email'}
+              placeholder={"Your Email"}
               required
               type="email"
             />
@@ -116,7 +115,7 @@ function ContactForm() {
             <Input
               id="company"
               name="company"
-              placeholder={'Your Company'}
+              placeholder={"Your Company"}
               required
               type="text"
             />
@@ -129,13 +128,13 @@ function ContactForm() {
               className="h-32 resize-none"
               id="message"
               name="message"
-              placeholder={'Tell us about your project or requirements...'}
+              placeholder={"Tell us about your project or requirements..."}
               required
               rows={6}
             />
           </div>
           <Button className="w-full" disabled={contact.isPending} type="submit">
-            {contact.isPending ? 'Sending...' : 'Send Message'}
+            {contact.isPending ? "Sending..." : "Send Message"}
           </Button>
         </form>
       </DialogContent>

@@ -3,19 +3,21 @@ import {
   defaultShouldDehydrateQuery,
   isServer,
   QueryClient,
-} from '@tanstack/react-query';
+} from "@tanstack/react-query";
+
+const DEFAULT_STALE_TIME_MS = 60_000; // 1 minute
 
 function makeQueryClient() {
   return new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 60 * 1000,
+        staleTime: DEFAULT_STALE_TIME_MS,
       },
       dehydrate: {
         // include pending queries in dehydration
         shouldDehydrateQuery: (query) =>
           defaultShouldDehydrateQuery(query) ||
-          query.state.status === 'pending',
+          query.state.status === "pending",
         shouldRedactErrors: () => {
           // We should not catch Next.js server errors
           // as that's how Next.js detects dynamic pages

@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import type { ComponentPropsWithoutRef } from 'react';
-import { highlight } from 'sugar-high';
+import Link from "next/link";
+import type { ComponentPropsWithoutRef } from "react";
+import { highlight } from "sugar-high";
 
-type HeadingProps = ComponentPropsWithoutRef<'h1'>;
-type ParagraphProps = ComponentPropsWithoutRef<'p'>;
-type ListProps = ComponentPropsWithoutRef<'ul'>;
-type ListItemProps = ComponentPropsWithoutRef<'li'>;
-type AnchorProps = ComponentPropsWithoutRef<'a'>;
-type BlockquoteProps = ComponentPropsWithoutRef<'blockquote'>;
+type HeadingProps = ComponentPropsWithoutRef<"h1">;
+type ParagraphProps = ComponentPropsWithoutRef<"p">;
+type ListProps = ComponentPropsWithoutRef<"ul">;
+type ListItemProps = ComponentPropsWithoutRef<"li">;
+type AnchorProps = ComponentPropsWithoutRef<"a">;
+type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
 
 export const components = {
   h1: (props: HeadingProps) => (
@@ -55,10 +55,10 @@ export const components = {
   li: (props: ListItemProps) => (
     <li className="text-zinc-700 dark:text-zinc-300" {...props} />
   ),
-  em: (props: ComponentPropsWithoutRef<'em'>) => (
+  em: (props: ComponentPropsWithoutRef<"em">) => (
     <em className="text-zinc-800 italic dark:text-zinc-200" {...props} />
   ),
-  strong: (props: ComponentPropsWithoutRef<'strong'>) => (
+  strong: (props: ComponentPropsWithoutRef<"strong">) => (
     <strong
       className="font-semibold text-zinc-900 dark:text-zinc-50"
       {...props}
@@ -66,15 +66,15 @@ export const components = {
   ),
   a: ({ href, children, ...props }: AnchorProps) => {
     const className =
-      'font-medium underline underline-offset-4 decoration-zinc-400/50 hover:decoration-zinc-400/90 dark:decoration-zinc-500/50 dark:hover:decoration-zinc-500/90 transition-all';
-    if (href?.startsWith('/')) {
+      "font-medium underline underline-offset-4 decoration-zinc-400/50 hover:decoration-zinc-400/90 dark:decoration-zinc-500/50 dark:hover:decoration-zinc-500/90 transition-all";
+    if (href?.startsWith("/")) {
       return (
         <Link className={className} href={href} {...props}>
           {children}
         </Link>
       );
     }
-    if (href?.startsWith('#')) {
+    if (href?.startsWith("#")) {
       return (
         <a className={className} href={href} {...props}>
           {children}
@@ -93,7 +93,7 @@ export const components = {
       </a>
     );
   },
-  code: ({ children, ...props }: ComponentPropsWithoutRef<'code'>) => {
+  code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
     const codeHTML = highlight(children as string);
     return (
       <code
@@ -123,7 +123,7 @@ export const components = {
           {data.rows.map((row) => (
             <tr
               className="border-zinc-100 border-b dark:border-zinc-800"
-              key={`row-${row.join('-')}`}
+              key={`row-${row.join("-")}`}
             >
               {row.map((cell) => (
                 <td
@@ -145,7 +145,13 @@ export const components = {
       {...props}
     />
   ),
-  img: (props: ComponentPropsWithoutRef<'img'>) => (
-    <img alt={props.alt} className="my-6 w-full rounded-md border" {...props} />
+  img: (props: ComponentPropsWithoutRef<"img">) => (
+    <img
+      alt={props.alt}
+      className="my-6 w-full rounded-md border"
+      height={100}
+      width={100}
+      {...props}
+    />
   ),
 };
