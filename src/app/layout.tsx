@@ -1,19 +1,10 @@
 import { Analytics } from "@vercel/analytics/next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Providers from "@/components/providers";
 import "./globals.css";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 type Props = {
   children: React.ReactNode;
@@ -46,7 +37,7 @@ export default function RootLayout({ children }: Props) {
         <link href="/site.webmanifest" rel="manifest" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-dvh flex-col antialiased`}
+        className={`${GeistSans.variable} ${GeistMono.variable} flex min-h-dvh flex-col antialiased`}
       >
         <Providers>
           <Navbar />
