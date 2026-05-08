@@ -11,10 +11,24 @@ type Props = {
 };
 
 export function generateMetadata() {
+  const description =
+    "Verkron provides expert solutions in pricing strategies, operations, inventory management, technical drafting, corporate branding, supply chain optimization, and industrial product design. Our goal is to enhance efficiency, drive innovation, and support businesses in achieving operational excellence.";
   return {
+    metadataBase: new URL("https://verkron.com"),
     title: "Verkron",
-    description:
-      "Verkron provides expert solutions in pricing strategies, operations, inventory management, technical drafting, corporate branding, supply chain optimization, and industrial product design. Our goal is to enhance efficiency, drive innovation, and support businesses in achieving operational excellence.",
+    description,
+    openGraph: {
+      title: "Verkron",
+      description,
+      url: "https://verkron.com",
+      siteName: "Verkron",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Verkron",
+      description,
+    },
   };
 }
 export default function RootLayout({ children }: Props) {
