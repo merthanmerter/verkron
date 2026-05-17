@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 export type BaseContent = {
   slug: string;
-  publishedAt: string;
+  priority: string;
   content: string;
 };
 
@@ -35,7 +35,7 @@ export class ContentService<T extends BaseContent> {
       });
 
       return allContent.sort((a, b) => {
-        if (a.publishedAt < b.publishedAt) {
+        if (a.priority > b.priority) {
           return 1;
         }
         return -1;
