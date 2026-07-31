@@ -1,0 +1,74 @@
+---
+logo: /images/eis-vision-logo.png
+title: "EIS Vision: From PDF Drawing to Measured, True-to-Scale DXF"
+projectType: "Engineering Software & CAD Automation"
+industry: "Aluminium Extrusion & Manufacturing"
+priority: "1"
+description: "Built for aluminium extruders: upload a profile drawing and get its area, perimeters, die type and complexity in seconds — plus a clean, true-to-scale DXF."
+---
+
+# EIS Vision: From PDF Drawing to Measured, True-to-Scale DXF
+
+EIS Vision · Part of the [EIS](/projects/eis-digital-transformation) suite for [Extrusionsim](https://extrusionsim.com) · Engineering Software & CAD Automation
+
+## The Problem
+
+Extrusion quotes usually start with a PDF. Someone emails a profile drawing, and
+before anyone can price it, a draughtsman has to redraw it in CAD just to find
+out what values it has — area, perimeters, die type, complexity. That is an hour
+or two in a conventional CAD package, repeated for every enquiry, with the scale
+guessed from a dimension line.
+
+The PDF already contains the geometry. It is just locked in a format nobody can
+measure.
+
+## What It Does
+
+EIS Vision is built for aluminium extruders. Upload a PDF or DXF of a profile,
+set the scale by clicking two points whose real distance you know, and it
+returns the figures a quote is built on — in seconds, not hours:
+
+```
+{
+  "dieType": "PORTHOLE",
+  "area": 694,
+  "outsidePerimeter": 546,
+  "insidePerimeter": 522,
+  "circumference": 167.69,
+  "mandrels": 1,
+  "complexity": "E"
+}
+```
+
+- **Die type & mandrels** — porthole or flat, and how many mandrels the holes imply.
+- **Area** — the cross-section in mm², with holes subtracted.
+- **Outside & inside perimeter** — true arc length, so fillets and bores are exact.
+- **Circumscribing circle** — the smallest circle enclosing the profile, for press and container fit.
+- **Complexity** — a die difficulty score, graded A–E.
+
+Weight per metre follows from the area, and a clean **DXF in millimetres** comes
+out alongside the numbers, ready for CAM or CAD at true size.
+
+<video autoPlay loop muted playsInline controls className="my-6 w-full rounded-md border" src="/images/eis-vision.mp4" />
+
+## Only the Profile
+
+Title blocks, dimensions, text and leader lines never make it through, and
+anything that survives can be erased with a click before export. What remains is
+the profile outline — with real arcs and circles rebuilt from the PDF's curves,
+loose fragments joined into closed contours, and the duplicated outlines that
+exporters leave behind removed.
+
+## Built to Be Trusted
+
+The measurements come from the *same* geometry as the exported DXF, so the
+figures always describe the file you downloaded — never a second, separate
+reading of the drawing. Arc lengths and areas are computed exactly, so a bore
+measures πr² no matter how the PDF drew it. If a contour does not close, the
+result says so instead of quietly reporting an area with a missing boundary.
+
+## The Impact
+
+What used to be an hour of redrawing per enquiry is now an upload and two
+clicks. The quote comes back the same day, the geometry is CAD-ready rather than
+approximate, and every profile is measured by the same rules, every time.
